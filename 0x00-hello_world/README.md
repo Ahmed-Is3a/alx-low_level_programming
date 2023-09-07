@@ -1,1 +1,2 @@
-my first c project with alx
+My first project with c 
+
