@@ -13,11 +13,11 @@ int main(void)
 	{
 		for (m = 0 ; m < 100 ; m++)
 		{
-			if (num != m && m > t)
+			if (num < m)
 			{
 				printf("%02d ",   num);
 				printf("%02d",  m);
-				if (m < 99)
+				if (num < 98)
 				{
 					putchar(',');
 					putchar(' ');
