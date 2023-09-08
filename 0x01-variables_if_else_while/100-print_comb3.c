@@ -17,12 +17,11 @@ int main(void)
 			{
 				putchar('0' +  num);
 				putchar('0' + m);
-
-			}
-			if (num < 9)
-			{
-				putchar(',');
-				putchar(' ');
+				if (num < 9)
+				{
+					putchar(',');
+					putchar(' ');
+				}
 			}
 		}
 		t++;
