@@ -19,7 +19,7 @@ int main(void)
 					putchar('0' + n);
 					putchar('0' + m);
 					putchar('0' + k);
-					if (k < 9)
+					if (n < 7)
 					{
 						putchar(',');
 						putchar(' ');
