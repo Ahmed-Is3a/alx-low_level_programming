@@ -12,13 +12,13 @@ int main(void)
 	{
 		for (m = 0 ; m < 10 ; m++)
 		{
-			t++;
 			if (num != m && num > t)
 			{
 				putchar('0' +  num);
 				putchar('0' + m);
 
 			}
+			t++;
 			if (num < 9)
 			{
 				putchar(',');
