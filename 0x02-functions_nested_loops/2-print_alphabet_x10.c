@@ -1,25 +1,22 @@
-#include <unistd.h>
 #include <stdio.h>
-
-int _putchar(char);
-/**
- * main - print string using _ptuchar function
- *
- * Return: always 0.
- */
-int main(void)
-{
-
-}
+#include "main.h"
 
 /**
- * _putchar - writes the character c to stdout
- * @c: The character to print
+ * print_alphabet - printing alphabets.
  *
- * Return: On success 1.
- * On error, -1 is returned, and errno is set appropriately.
+ * Return: no value
  */
-int _putchar(char c)
+void print_alphabet(void)
 {
-	return (write(1, &c, 1));
+	int i, j;
+	char s[] = "abcdefghijklmnopqrstuvwxyz";
+
+	for (i = 0; i < 10; i++)
+	{
+		for (j = 0; j < 26; j++)
+		{
+			_putchar(s[i]);
+		}
+	}
+	_putchar('\n');
 }
