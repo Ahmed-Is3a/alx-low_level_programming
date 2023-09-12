@@ -1,25 +1,20 @@
-#include <unistd.h>
 #include <stdio.h>
-
-int _putchar(char);
-/**
- * main - print string using _ptuchar function
- *
- * Return: always 0.
- */
-int main(void)
-{
-
-}
+#include <ctype.h>
+#include "main.h"
 
 /**
- * _putchar - writes the character c to stdout
- * @c: The character to print
+ * _isalpha - printing alphabets.
  *
- * Return: On success 1.
- * On error, -1 is returned, and errno is set appropriately.
+ * @c: a charactor.
+ *
+ * Return: no value
  */
-int _putchar(char c)
+int _isalpha(int c)
 {
-	return (write(1, &c, 1));
+	if (isalpha(c))
+	{
+		return (1);
+	}
+	else
+		return (0);
 }
