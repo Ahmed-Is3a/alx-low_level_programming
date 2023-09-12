@@ -2,7 +2,7 @@
 #include "main.h"
 
 /**
- * print_alphabet - printing alphabets.
+ * print_alphabet_x10 - printing alphabets.
  *
  * Return: no value
  */
@@ -17,6 +17,6 @@ void print_alphabet_x10(void)
 		{
 			_putchar(s[j]);
 		}
+		_putchar('\n');
 	}
-	_putchar('\n');
 }
