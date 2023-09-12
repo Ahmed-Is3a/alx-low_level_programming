@@ -1,25 +1,18 @@
-#include <unistd.h>
 #include <stdio.h>
-
-int _putchar(char);
-/**
- * main - print string using _ptuchar function
- *
- * Return: always 0.
- */
-int main(void)
-{
-
-}
+#include <ctype.h>
+#include "main.h"
 
 /**
- * _putchar - writes the character c to stdout
- * @c: The character to print
+ * add - add two numbers.
  *
- * Return: On success 1.
- * On error, -1 is returned, and errno is set appropriately.
+ * @a: a number
+ * @b: number
+ *
+ * Return: no value
  */
-int _putchar(char c)
+int add(int a, int b)
 {
-	return (write(1, &c, 1));
+	int c = a + b;
+
+	return (c);
 }
