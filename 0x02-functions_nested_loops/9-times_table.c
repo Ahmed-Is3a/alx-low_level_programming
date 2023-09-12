@@ -1,25 +1,41 @@
-#include <unistd.h>
 #include <stdio.h>
-
-int _putchar(char);
-/**
- * main - print string using _ptuchar function
- *
- * Return: always 0.
- */
-int main(void)
-{
-
-}
+#include <stdlib.h>
+#include "main.h"
 
 /**
- * _putchar - writes the character c to stdout
- * @c: The character to print
+ * times_table - printing alphabets.
  *
- * Return: On success 1.
- * On error, -1 is returned, and errno is set appropriately.
+ * Return: no value
  */
-int _putchar(char c)
+void times_table(void)
 {
-	return (write(1, &c, 1));
+	int i, j, n;
+
+	for (i = 0; i < 10; i++)
+	{
+		for (j = 0; j < 10; j++)
+		{
+			n = i * j;
+			if (n < 10)
+			{
+				_putchar('0' + n);
+				if (j < 9)
+				{
+					_putchar(',');
+					_putchar(' ');
+				}
+			}
+			else
+			{
+				_putchar('0' + n / 10);
+				_putchar('0' + n % 10);
+				if (j < 9)
+				{
+					_putchar(',');
+					_putchar(' ');
+				}
+			}
+			_putchar('\n');
+		}
+	}
 }
