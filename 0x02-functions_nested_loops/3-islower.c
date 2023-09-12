@@ -5,6 +5,8 @@
 /**
  * _islower - printing alphabets.
  *
+ * @c: a charactor.
+ *
  * Return: no value
  */
 int _islower(int c)
