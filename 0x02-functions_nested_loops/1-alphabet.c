@@ -1,7 +1,6 @@
 #include <stdio.h>
 
 int _putchar(char);
-void print_alphabet(void);
 /**
  * main - print string using _ptuchar function
  *
