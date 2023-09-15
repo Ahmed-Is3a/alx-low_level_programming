@@ -1,3 +1,5 @@
+#include <ctype.h>
+
 /**
  * _isupper - print upper case letters.
  *
