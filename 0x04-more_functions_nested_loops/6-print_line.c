@@ -2,8 +2,9 @@
 #include "main.h"
 
 /**
- * print_numbers - printing alphabets.
+ * print_line - printing alphabets.
  *
+ * @n: number
  * Return: no value
  */
 void print_line(int n)
