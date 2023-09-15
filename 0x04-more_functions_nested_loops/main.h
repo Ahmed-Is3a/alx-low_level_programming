@@ -1,5 +1,6 @@
 #ifndef MAIN
 #define MAIN
+#include <stdio.h>
 
 char _putchar(char);
 int _isupper(int c);
