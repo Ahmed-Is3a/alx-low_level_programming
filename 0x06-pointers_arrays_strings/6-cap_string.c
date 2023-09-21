@@ -16,7 +16,7 @@ char *cap_string(char *p)
 
 	while (*p != '\0')
 	{
-		if (*p == ' ' || *p == '\n' || *p == '.' || *p == '\t')
+		if (*p == ' ' || *p == '\n' || *p == ',' || *p == '.' || *p == '\t')
 		{
 			p++;
 			*p = toupper(*p);
