@@ -4,11 +4,14 @@
 /**
  * _strcat - check the code
  *
+ * @dest: destination
+ * @src: source
  * Return: Always 0.
  */
 char *_strcat(char *dest, char *src)
 {
 	char *d = dest;
+
 	while (*d != '\0')
 		d++;
 	while (*src != '\0')
@@ -18,5 +21,7 @@ char *_strcat(char *dest, char *src)
 		src++;
 	}
 	*d = '\0';
-	return dest;
+	return (dest);
 }
+
+
