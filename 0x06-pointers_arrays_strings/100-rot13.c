@@ -5,7 +5,7 @@
 /**
  * rot13 -  encodes a string into 1337. leet
  *
- * @c: charactor
+ * @c: charactor.
  * Return: Always 0.
  */
 
