@@ -11,7 +11,7 @@
 
 char *cap_string(char *c)
 {
-	int i, j;
+	int i;
 	char sep[] = "\t \n,;.!?\"(){} ";
 	char *p = c;
 
