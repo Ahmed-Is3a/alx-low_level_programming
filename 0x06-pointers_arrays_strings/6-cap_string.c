@@ -1,7 +1,6 @@
 #include "main.h"
 #include <stdio.h>
 #include <ctype.h>
-#include <stdbool.h>
 
 /**
  * cap_string - check the code
@@ -9,39 +8,33 @@
  * @p: pointer
  * Return: Always 0.
  */
-bool isSeparator(char c) {
-	char separators[] = " \t\n,;.!?\"(){}";
-	for (int i = 0; separators[i] != '\0'; i++) {
-		if (c == separators[i]) {
-			return true;
+char *cap_string(char *p)
+{
+	char *b;
+
+	b = p;
+
+	while (*p != '\0')
+	{
+
+		if (*p == ' ' || *p == '\n' || *p == '.' || *p == '\t')
+		{
+			p++;
+			*p = toupper(*p);
 		}
-	}
-	return false;
-}
-
-// Function to capitalize all words in a string
-char *cap_string(char *str) {
-	// Check for NULL pointer
-	if (str == NULL) {
-		return NULL;
-	}
-
-	// Initialize a flag to indicate the start of a new word
-	bool newWord = true;
-
-	// Iterate through the string
-	for (int i = 0; str[i] != '\0'; i++) {
-		// If the current character is a separator, set newWord to true
-		if (isSeparator(str[i])) {
-			newWord = true;
+		else if (*p == ',' || *p == ';' || *p == '!' || *p == '?')
+		{
+			p++;
+			*p = toupper(*p);
 		}
-		// If the current character is not a separator and newWord is true, capitalize it
-		else if (newWord) {
-			str[i] = toupper(str[i]);
-			newWord = false;
+		else if (*p == '"' || *p == '(' || *p == ')' || *p == '{' || *p == '}')
+		{
+			p++;
+			*p = toupper(*p);
 		}
+		else
+			p++;
 	}
-
-	return str;
+	return (b);
 }
 
