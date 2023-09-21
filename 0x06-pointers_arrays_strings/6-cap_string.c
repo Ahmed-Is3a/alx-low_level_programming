@@ -3,38 +3,34 @@
 #include <ctype.h>
 
 /**
- * cap_string - check the code
+ * cap_string -  encodes a string into 1337. leet
  *
- * @p: pointer
+ * @c: charactor
  * Return: Always 0.
  */
-char *cap_string(char *p)
+
+char *cap_string(char *c)
 {
-	char *b;
+	int i, j;
+	char sep[] = "\t \n,;.!?\"(){} ";
+	char *p = c;
 
-	b = p;
-
-	while (*p != '\0')
+	while (*c != '\0')
 	{
-
-		if (*p == ' ' || *p == '\n' || *p == '.' || *p == '\t')
+		for (i = 0; i < 14; i++)
 		{
-			p++;
-			*p = toupper(*p);
+			if (*c == sep[i])
+			{
+				c++;
+				*c = toupper(*c);
+				c--;
+			}
 		}
-		else if (*p == ',' || *p == ';' || *p == '!' || *p == '?')
-		{
-			p++;
-			*p = toupper(*p);
-		}
-		else if (*p == '"' || *p == '(' || *p == ')' || *p == '{' || *p == '}')
-		{
-			p++;
-			*p = toupper(*p);
-		}
-		else
-			p++;
+		c++;
 	}
-	return (b);
+	return (p);
 }
+
+
+
 
