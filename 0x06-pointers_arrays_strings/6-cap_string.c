@@ -11,18 +11,24 @@
 char *cap_string(char *p)
 {
 	char *b;
-
+	int i = 0;
+	char sep[] = " \t\n,;.!?\"(){}";
 	b = p;
 
 	while (*p != '\0')
 	{
-		if (*p == ' ' || *p == '\n' || *p == ',' || *p == '.' || *p == '\t')
+		for (i = 0; i < 13; i++)
 		{
-			p++;
-			*p = toupper(*p);
+
+
+			if (*p == sep[i])
+			{
+				p++;
+				*p = toupper(*p);
+				p--;
+			}
 		}
-		else
-			p++;
+		p++;
 	}
 	return (b);
 }
