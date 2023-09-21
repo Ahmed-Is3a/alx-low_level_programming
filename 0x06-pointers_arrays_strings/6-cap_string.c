@@ -22,8 +22,8 @@ char *cap_string(char *c)
 			if (*c == sep[i])
 			{
 				c++;
-				if (isalpha(*c))
-					*c = toupper(*c);
+				if (*c > 96)
+					*c = *c - 32;
 				c--;
 			}
 		}
