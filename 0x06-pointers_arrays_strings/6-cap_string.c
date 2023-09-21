@@ -15,6 +15,7 @@ char *cap_string(char *c)
 	char sep[] = "\t \n,;.!?\"(){} ";
 	char *p = c;
 
+	*c = toupper(*c);
 	while (*c != '\0')
 	{
 		for (i = 0; i < 14; i++)
