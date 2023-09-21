@@ -2,32 +2,21 @@
 #include <stdio.h>
 
 /**
- * _strcat - cancatinate
+ * _strcat - check the code
  *
- * @dest: destination
- * @src: source
- * Return: 0
- *
+ * Return: Always 0.
  */
-
 char *_strcat(char *dest, char *src)
 {
-	int i, j;
-
-	i = 0;
-	while (dest[i] != '\0')
+	char *d = dest;
+	while (*d != '\0')
+		d++;
+	while (*src != '\0')
 	{
-	i++;
+		*d = *src;
+		d++;
+		src++;
 	}
-
-	j = 0;
-	while (src[j] != '\0')
-	{
-	dest[i] = src[j];
-	i++;
-	j++;
-	}
-
-	dest[i] = '\0';
-	return (dest);
+	*d = '\0';
+	return dest;
 }
