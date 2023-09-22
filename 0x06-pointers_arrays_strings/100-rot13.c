@@ -20,7 +20,10 @@ char *rot13(char *c)
 	{
 		if ((*c >= 'A' && *c <= 'Z') || (*c >= 'a' && *c <= 'z'))
 		{
-			base = (*c >= 'a') ? 'a' : 'A';
+			if (*c >= 'a')
+				base = 'a';
+			else
+				base = 'A';
 			*c = ((*c - base + 13) % 26) + base;
 		}
 	}
