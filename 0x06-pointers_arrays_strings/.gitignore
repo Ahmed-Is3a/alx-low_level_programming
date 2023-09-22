@@ -2,3 +2,6 @@
 main.c
 # ignore _putchar.c 
 _putchar.c
+# all executable files
+*.exe
+*.o 

@@ -1,4 +1,4 @@
-
+#include "main.h"
 /**
  * rot13 -  encodes a string into 1337. leet
  *
@@ -6,24 +6,21 @@
  * Return: Always 0.
  */
 
-char *rot13(char *c)
-{
-	char *p = c;
+#include <stdio.h>
+#include <stdlib.h>
 
-	while (*c != '\0')
-	{
-		if (*c <= 'm' && *c >= 'a')
-		{
-			*c = *c + 13;
-		}
-		else if (*c >= 'n' && *c <= 'z')
-			*c = *c - 13;
-		if (*c >= 'N' && *c <= 'Z')
-			*c = *c + 13;
-		else if (*c <= 'M' && *c >= 'A')
-			*c = *c - 13;
-	}
-	return (p);
+char *rot13(char *c) {
+	char *p;
+	
+	p = c;
+
+    for (; *c != '\0'; ++c) {
+        if ((*c >= 'A' && *c <= 'Z') || (*c >= 'a' && *c <= 'z')) {
+            char base = (*c >= 'a') ? 'a' : 'A';
+            *c = ((*c - base + 13) % 26) + base;
+        }
+    }
+
+    return p;
 }
-
 
