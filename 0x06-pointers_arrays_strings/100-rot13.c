@@ -9,18 +9,22 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-char *rot13(char *c) {
+char *rot13(char *c)
+{
 	char *p;
-	
+	char base;
+
 	p = c;
 
-    for (; *c != '\0'; ++c) {
-        if ((*c >= 'A' && *c <= 'Z') || (*c >= 'a' && *c <= 'z')) {
-            char base = (*c >= 'a') ? 'a' : 'A';
-            *c = ((*c - base + 13) % 26) + base;
-        }
-    }
+	for (; *c != '\0'; ++c)
+	{
+		if ((*c >= 'A' && *c <= 'Z') || (*c >= 'a' && *c <= 'z'))
+		{
+			base = (*c >= 'a') ? 'a' : 'A';
+			*c = ((*c - base + 13) % 26) + base;
+		}
+	}
 
-    return p;
+	return (p);
 }
 
