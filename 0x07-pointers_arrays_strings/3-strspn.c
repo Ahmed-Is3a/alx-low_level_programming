@@ -2,9 +2,9 @@
 #include <stdio.h>
 
 /**
- * print_diagsums - locate a charactor
+ * _strspn - locate a charactor
  * @s: memory area.
- * @accept: char.
+ * @accept: char
  *
  * Return: pointer.
  */
