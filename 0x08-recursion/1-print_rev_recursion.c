@@ -3,7 +3,7 @@
 #include <string.h>
 
 /**
- * - function discription
+ * _print_rev_recursion - function discription
  * @s: varaible discription.
  *
  * Return: always 0.
@@ -11,7 +11,7 @@
 void _print_rev_recursion(char *s)
 {
 	if (*s == '\0')
-	{	
+	{
 		return;
 	}
 	else
@@ -20,4 +20,3 @@ void _print_rev_recursion(char *s)
 	}
 	_putchar(*s);
 }
-
