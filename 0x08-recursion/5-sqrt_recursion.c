@@ -6,37 +6,22 @@
  * sqrt_search - function discription
  *
  * varaible discription.
- * @low: int
- * @high: int
- * @p: int
+ * @n: int
+ * @i: int
+ *
  *
  * Return: always 0.
  */
-
-
-float sqrt_search(int low, int high, int p)
+double sqrt_search(int n, int i)
 {
+	if (i * i > n)
+		return (-1);
 
-	if (low <= high)
-	{
-		int mid = (low + high) / 2;
+	if (i * i == n)
+		return (i);
 
+	return (sqrt_search(n, i + 1));
 
-		if ((mid * mid <= p) && ((mid + 1) * (mid + 1) > p))
-		{
-			return (mid);
-		}
-
-		else if (mid * mid < p)
-		{
-			return (sqrt_search(mid + 1, high, p));
-		}
-		else
-		{
-			return (sqrt_search(low, mid - 1, p));
-		}
-	}
-	return (low);
 }
 
 /**
@@ -47,18 +32,9 @@ float sqrt_search(int low, int high, int p)
 */
 int _sqrt_recursion(int n)
 {
-	int start = 0;
-	int end = n;
-	float rlt;
-
 	if (n < 0)
 		return (-1);
-
-	rlt = sqrt_search(start, end, end);
-	if ((rlt * rlt) == n)
-		return (rlt);
-	else
-		return (-1);
+	return (sqrt_search(n, 0));
 
 }
 
