@@ -29,11 +29,11 @@ float sqrt_search(int low, int high, int p)
 
 		else if (mid * mid < p)
 		{
-			return (sqrtSearch(mid + 1, high, p));
+			return (sqrt_search(mid + 1, high, p));
 		}
 		else
 		{
-			return (sqrtSearch(low, mid - 1, p));
+			return (sqrt_search(low, mid - 1, p));
 		}
 	}
 	return (low);
@@ -54,7 +54,7 @@ int _sqrt_recursion(int n)
 	if (n < 0)
 		return (-1);
 
-	rlt = sqrtSearch(start, end, end);
+	rlt = sqrt_search(start, end, end);
 	if ((rlt * rlt) == n)
 		return (rlt);
 	else
