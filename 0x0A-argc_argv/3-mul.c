@@ -17,8 +17,14 @@ int main(int argc, char *argv)
 {
 	int sum = 0;
 
+	if (argc != 3)
+	{
+		printf("Error\n");
+		return (1);
+	}
+
 	sum = argv[1] * argv[2];
-	printf("%d", sum);
+	printf("%d\n", sum);
 	
 	return (0);
 }
