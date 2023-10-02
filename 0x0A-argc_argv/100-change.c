@@ -1,4 +1,6 @@
 
+#include <stdio.h>
+#include <stdlib.h>
 
 /**
  * main - check the code.
@@ -17,7 +19,23 @@
  *
  * Return: always 0
 */
-int main(int argc, char *argv)
+int main(int argc, char *argv[])
 {
+	int i, n, c, tmp, result;
+	int change[] = {25, 10, 5, 2, 1};
+
+	result = 0;
+	
+	if (argc == 2)
+		n = atoi(argv[1]);
+
+	for (i = 0; i < 5; i++)
+	{
+		tmp = n;
+		n = n % change[i];
+		result += tmp / change[i];
+	}
+	
+	printf("%d\n", result);
 
 }
