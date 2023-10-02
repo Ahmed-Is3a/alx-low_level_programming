@@ -1,3 +1,9 @@
+/**
+ * Write a program that prints the number of arguments passed into it.
+ * 
+ * Your program should print a number, followed by a new line
+*/
+
 #include "main.h"
 
 /**
@@ -5,9 +11,9 @@
  *
  * Return: Always 0.
  */
-int main(int argc, char *argv)
+int main(int argc, char *argv[])
 {
-	printf("%d", argc - 1);
-	
+	printf("%d\n", argc);
+
 	return (0);
 }
