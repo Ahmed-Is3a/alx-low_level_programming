@@ -7,15 +7,17 @@
  * 
 */
 #include "main.h"
+#include <stdlib.h>
 
 /**
  * main - check the code
  *
  * Return: Always 0.
  */
-int main(int argc, char *argv)
+int main(int argc, char *argv[])
 {
 	int sum = 0;
+	int a, b;
 
 	if (argc != 3)
 	{
@@ -23,7 +25,9 @@ int main(int argc, char *argv)
 		return (1);
 	}
 
-	sum = argv[1] * argv[2];
+	a = atoi(argv[1]);
+	b = atoi(argv[2]);
+	sum = a * b;
 	printf("%d\n", sum);
 	
 	return (0);
