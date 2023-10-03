@@ -30,6 +30,9 @@ char *_strdup(char *str)
 	if (str == NULL)
 		return (NULL);
 
+	if (s == NULL)		/* sigfualt problem */
+		return (NULL);
+
 	for (i = 0; *str != '\0'; i++)
 	{
 		*s = *str;
