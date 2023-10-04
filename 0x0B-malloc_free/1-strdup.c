@@ -27,6 +27,12 @@ char *_strdup(char *str)
 	char *s;
 	char *ptr;
 
+	if (str == NULL)
+		return (NULL);
+		
+	if (s == NULL) /* sigfualt problem */
+		return (NULL);
+
 	while (str[i] != '\0')
 	{
 		i++;
@@ -35,11 +41,7 @@ char *_strdup(char *str)
 	s = (char *)malloc(sizeof(char) * i + 1);
 	ptr = s;
 
-	if (str == NULL)
-		return (NULL);
 
-	if (s == NULL) /* sigfualt problem */
-		return (NULL);
 
 	for (i = 0; *str != '\0'; i++)
 	{
