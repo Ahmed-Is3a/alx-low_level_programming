@@ -32,7 +32,7 @@ char *_strdup(char *str)
 		i++;
 	}
 
-	s = (char *)malloc(sizeof(char) * i);
+	s = (char *)malloc(sizeof(char) * i + 1);
 	ptr = s;
 
 	if (str == NULL)
