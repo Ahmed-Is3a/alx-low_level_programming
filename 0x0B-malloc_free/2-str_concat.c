@@ -16,10 +16,16 @@ char *str_concat(char *s1, char *s2)
 	char *str1;
 	char *ptr;
 
+	if (s1 != NULL)
+	{
 	while (s1[i] != '\0')
 		i++;
+	}
+	if (s2 != NULL)
+	{
 	while (s2[i] != '\0')
 		i++;
+	}
 
 	str1 = (char *)malloc(sizeof(char) * (i + 1));
 	ptr = str1;
@@ -45,6 +51,4 @@ char *str_concat(char *s1, char *s2)
 	}
 	*str1 = '\0';
 	return (ptr);
-
-
 }
