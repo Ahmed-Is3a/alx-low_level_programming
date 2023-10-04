@@ -3,7 +3,7 @@
 #include <stdlib.h>
 
 /**
- * str_concat - check the code for ALX School students.
+ * str_concat - check the code.
  *
  * @s1: string
  * @s2: string
@@ -18,11 +18,10 @@ char *str_concat(char *s1, char *s2)
 
 	while (s1[i] != '\0')
 		i++;
-
 	while (s2[i] != '\0')
 		i++;
 
-	str1 = (char *)malloc(sizeof(char) * i + 1);
+	str1 = (char *)malloc(sizeof(char) * (i + 1));
 	ptr = str1;
 	if (str1 == NULL)
 		return (NULL);
@@ -44,7 +43,6 @@ char *str_concat(char *s1, char *s2)
 			str1++;
 		}
 	}
-
 	*str1 = '\0';
 	return (ptr);
 
