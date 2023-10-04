@@ -23,9 +23,17 @@
  */
 char *_strdup(char *str)
 {
-	int i;
-	char *s = (char *)malloc(sizeof(char) * 50);
-	char *ptr = s;
+	int i = 0;
+	char *s;
+	char *ptr;
+
+	while (str[i] != '\0')
+	{
+		i++;
+	}
+
+	s = (char *)malloc(sizeof(char) * i);
+	ptr = s;
 
 	if (str == NULL)
 		return (NULL);
