@@ -3,7 +3,7 @@
 #include <stdlib.h>
 
 /**
- * _strdup - check the code for ALX School students.
+ * _strdup - check code.
  *
  * @str: string
  *
@@ -24,13 +24,13 @@
 char *_strdup(char *str)
 {
 	int i;
-	char *s = (char *)malloc(sizeof(char) * 100);
+	char *s = (char *)malloc(sizeof(char) * 50);
 	char *ptr = s;
 
 	if (str == NULL)
 		return (NULL);
 
-	if (s == NULL)		/* sigfualt problem */
+	if (s == NULL) /* sigfualt problem */
 		return (NULL);
 
 	for (i = 0; *str != '\0'; i++)
@@ -42,5 +42,4 @@ char *_strdup(char *str)
 			return (NULL);
 	}
 	return (ptr);
-
 }
