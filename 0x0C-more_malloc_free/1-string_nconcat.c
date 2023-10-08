@@ -30,15 +30,15 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	{
 		l2++;
 		if (l2 == n)
-		{
 			n = l2;
-			break;
-		}
 	}
+	if (s1 != NULL)
+	{
 	for (i = 0; s1[i] != '\0'; i++)
 	{
 		*a = s1[i];
 		a++;
+	}
 	}
 	if (s2 != NULL)
 	{
