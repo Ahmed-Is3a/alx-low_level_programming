@@ -4,11 +4,10 @@
 #include <limits.h>
 
 /**
- * malloc_checked - check the code
+ * malloc_checked - allocates memory using malloc.
  *
  * @b: int
  *
- * Write a function that allocates memory using malloc.
  *
  * Return: pointer to the allocated memory
  *
