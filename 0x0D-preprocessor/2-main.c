@@ -1,5 +1,5 @@
-#include <stdio.h>
 #include "main.h"
+#include <stdio.h>
 
 /**
  * main - rints the name of the file it was compiled from,
@@ -9,9 +9,7 @@
  */
 int main(void)
 {
-
-	printf(__FILE__);
-	putchar('\n');
+	printf("%s\n", __FILE__);
 
 	return (0);
 }
