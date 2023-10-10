@@ -1,5 +1,3 @@
-#include "main.h"
-#include <stdio.h>
 
 /**
  * main - rints the name of the file it was compiled from,
