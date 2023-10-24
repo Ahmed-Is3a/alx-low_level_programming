@@ -1,0 +1,3 @@
+#ignore any test file or folder
+/Test
+test*
