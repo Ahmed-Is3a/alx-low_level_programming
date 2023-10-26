@@ -1,5 +1,4 @@
 #include "main.h"
-#include <math.h>
 #include <string.h>
 
 /**
@@ -13,42 +12,23 @@
 */
 unsigned int binary_to_uint(const char *b)
 {
-	unsigned int i, k, l, sum, po;
-	double j;
+	unsigned int i, sum;
 
-	j = 0;
 	sum = 0;
-	po = 1;
-
-	l = strlen(b);
-	/* printf("l = %d\n", l); */
 	i = 0;
 	if (b == NULL)
 		return (0);
 
-	for (i = l; i > 0;)
+	while (b[i] != '\0')
 	{
-		i--;
-		j++;
-		if (b[i] == '1' || b[i] == '0')
-		{
-			if (b[i] == '1')
-			{
-				po = 1;
+		sum = sum << 1;
+		if (b[i] == '1')
+			sum = sum + 1;
 
-				for (k = 1; k < j; k++)
-				{
-					po = po * 2;
-				}
-				sum = sum + po;
-			}
-		}
-		else
+		if (!(b[i] == '0' || b[i] == '1'))
 			return (0);
 
-		/* printf("d: %c ,", b[i]); */
-
+		i++;
 	}
-
 	return (sum);
 }
