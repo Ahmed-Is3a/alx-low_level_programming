@@ -1,14 +1,14 @@
 #include "main.h"
 
 /**
- * power - base ** power
+ * _power - base ** power
  *
  * @base: base
  * @power: power
  *
  * Return: power
  */
-unsigned long int power(unsigned int base, unsigned int power)
+unsigned long int _power(unsigned int base, unsigned int power)
 {
 	unsigned long int num;
 	unsigned int a;
@@ -28,12 +28,11 @@ unsigned long int power(unsigned int base, unsigned int power)
  */
 void print_binary(unsigned long int n)
 {
-	unsigned long int divider;
-	unsigned long int value;
+	unsigned long int divider, value;
 	char flag;
 
 	flag = 0;
-	divider = power(2, 7);
+	divider = _power(2, sizeof(unsigned long int) * 8 - 1);
 	while (divider != 0)
 	{
 		value = n & divider;
