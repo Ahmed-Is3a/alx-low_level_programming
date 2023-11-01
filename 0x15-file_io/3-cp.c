@@ -1,53 +1,82 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <unistd.h>
+#include <fcntl.h>
 
 /**
- * main - copies the content of a file to another file.
+ * error_exit - error exit
  *
- * @argc: number arguments
- * @argv: list of arguments
+ * @code: code of exit
+ * @message: message to write
  *
- * Return: zero
+ */
+void error_exit(int code, const char *message)
+{
+	dprintf(2, "%s\n", message);
+	exit(code);
+}
+
+/**
+ * copy_file - copy file
+ *
+ * @source_filename: source filename
+ * @dest_filename: dest filename
+ */
+void copy_file(const char *source_filename, const char *dest_filename)
+{
+	int source_fd, dest_fd;
+	char buffer[1024];
+	ssize_t bytes_read, bytes_written;
+
+	source_fd = open(source_filename, O_RDONLY);
+	if (source_fd == -1)
+	{
+		error_exit(98, "Error: Can't read from file");
+	}
+
+	dest_fd = open(dest_filename, O_WRONLY | O_CREAT | O_TRUNC, 0664);
+	if (dest_fd == -1)
+	{
+		error_exit(99, "Error: Can't write to file");
+	}
+
+	while ((bytes_read = read(source_fd, buffer, sizeof(buffer))) > 0)
+	{
+		bytes_written = write(dest_fd, buffer, bytes_read);
+		if (bytes_written != bytes_read)
+		{
+			error_exit(99, "Error: Can't write to file");
+		}
+	}
+
+	if (bytes_read == -1)
+	{
+		error_exit(98, "Error: Can't read from file");
+	}
+
+	if (close(source_fd) == -1 || close(dest_fd) == -1)
+	{
+		error_exit(100, "Error: Can't close fd");
+	}
+}
+
+/**
+ * main - main function
+ *
+ * @argc: number of arg
+ * @argv: arg list
+ *
+ * Return: 0
 */
 int main(int argc, char *argv[])
 {
-	const char *file_from = argv[1];
-	const char *file_to = argv[2];
-	FILE *source_file;
-	FILE *destination_file;
-	char buffer[1024];
-	size_t bytes_read, bytes_written;
-
 	if (argc != 3)
 	{
-		fprintf(stderr, "Usage: %s file_from file_to\n", argv[0]);
+		dprintf(2, "Usage: cp file_from file_to\n");
 		exit(97);
 	}
-	source_file = fopen(file_from, "rb");
-	if (source_file == NULL)
-	{
-		dprintf(0, "Error: Can't read from file %s\n", file_from);
-		exit(98);
-	}
-	destination_file = fopen(file_to, "wb");
-	if (destination_file == NULL)
-	{
-		dprintf(0, "Error: Can't write to %s\n", file_to);
-		exit(99);
-	}
-	while ((bytes_read = fread(buffer, 1, sizeof(buffer), source_file)) > 0)
-	{
-		bytes_written = fwrite(buffer, 1, bytes_read, destination_file);
-		if (bytes_written < bytes_read)
-		{
-			perror("Error writing to destination file");
-			fclose(source_file);
-			fclose(destination_file);
-			return (4);
-		}
-	}
-	fclose(source_file);
-	fclose(destination_file);
+
+	copy_file(argv[1], argv[2]);
 
 	return (0);
 }
