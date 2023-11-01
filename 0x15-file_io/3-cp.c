@@ -46,7 +46,7 @@ void copy_file(const char *source_filename, const char *dest_filename)
 	if (bytes_read == -1)
 		error_exit(98, "Error: Can't read from file", source_filename);
 
-	if (close(source_fd) == -1 || close(dest_fd) == -1)
+	if (close(source_fd) == -1)
 		error_exit(100, "Error: Can't close fd", "0");
 
 	if (close(dest_fd) == -1)
