@@ -1,11 +1,21 @@
 #include "main.h"
+#include <sys/stat.h>
+#include <string.h>
+#include <unistd.h>
+#include <stdlib.h>
+#include <fcntl.h>
+
 /**
  * read_textfile - reads a text file and prints it to
  * the POSIX standard output.
- * where letters is the number of letters it should read and print
+ * steps:
+ * open the file
+ * read from file
+ * write to stdout
+ * close the file
  *
  * @filename: file name
- * @letters: letters
+ * @letters: number of letters
  *
  * Return: the actual number of letters it could read and print
  * if the file can not be opened or read, return 0
@@ -15,29 +25,39 @@
 
 ssize_t read_textfile(const char *filename, size_t letters)
 {
-	FILE *fp;
-	int c;
-	int num_of_char;
+	FILE *fd;
+	char *buff;
+	ssize_t bytes_read;
+	ssize_t bytes_write;
+
+	fd = fopen(filename, "r");
 
 	if (filename == NULL)
 		return (0);
 
-	fp = fopen(filename, "r");
-	if (fp == NULL)
+	if (fd == NULL) /* if the file cannot be opened */
 		return (0);
+	buff = malloc(sizeof(char) * letters + 1);
+	if (buff == NULL) /* if memory allocation failes */
+		return (-1);
 
-	num_of_char = 0;
-
-	while (letters--)
+	bytes_read = fread(buff, sizeof(char), letters, fd);
+	if (bytes_read == 0) /* if reading fails */
 	{
-		c = fgetc(fp);
-		num_of_char++;
-		if (feof(fp))
-			break;
-		printf("%c", c);
+		fclose(fd);
+		free(buff);
+		return (0);
 	}
-	printf("\n");
-	fclose(fp);
-	return (num_of_char);
 
+	bytes_write = write(STDOUT_FILENO, buff, letters);
+	if (bytes_write != bytes_read) /* if write fails */
+	{
+		fclose(fd);
+		free(buff);
+		return (0);
+	}
+
+	fclose(fd);
+	free(buff);
+	return (bytes_write);
 }
